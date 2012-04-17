@@ -3,7 +3,7 @@
 <phpunit bootstrap="./bootstrap.php" colors="true">
 
     <testsuites>
-        <testsuite test="" name="HnstaFlickrBundle" suite="">
+        <testsuite name="HnstaFlickrBundle test suite">
             <directory suffix="Test.php">./Tests</directory>
         </testsuite>
     </testsuites>
@@ -13,6 +13,7 @@
             <directory>./</directory>
             <exclude>
                 <directory>./Tests</directory>
+                <directory>./vendor</directory>
             </exclude>
         </whitelist>
     </filter>
