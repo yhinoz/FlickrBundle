@@ -1,0 +1,20 @@
+{
+    "name": "Hnsta/FlickrBundle",
+    "description": ""
+    "keywords": [],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yoshiyuki Hino",
+            "email": "gyhino@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/symfony": "2.0.*"
+    },
+    "autoload": {
+    },
+    "target-dir": ""
+}
