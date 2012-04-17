@@ -4,17 +4,17 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="hnsta_flickr.example.class">Hnsta\FlickrBundle\Example</parameter>
+        <parameter key="hnsta_flickr.user_id" />
+        <parameter key="hnsta_flickr.api_key" />
+        <parameter key="hnsta_flickr.api.class">Hnsta\FlickrBundle\FlickrApi</parameter>
     </parameters>
 
     <services>
-        <service id="hnsta_flickr.example" class="%hnsta_flickr.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="hnsta_flickr.api" class="%hnsta_flickr.api.class%">
+            <argument>%hnsta_flickr.user_id%</argument>
+            <argument>%hnsta_flickr.api_key%</argument>
         </service>
     </services>
-    -->
+
 </container>

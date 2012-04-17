@@ -24,5 +24,8 @@ class HnstaFlickrExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        $container->setParameter('hnsta_flickr.user_id', $config['user_id']);
+        $container->setParameter('hnsta_flickr.api_key', $config['api_key']);
     }
 }
