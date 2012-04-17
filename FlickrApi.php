@@ -12,4 +12,14 @@ class FlickrApi
         $this->user_id = $user_id;
         $this->api_key = $api_key;
     }
+
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    public function getApiKey()
+    {
+        return $this->api_key;
+    }
 }
