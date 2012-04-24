@@ -7,11 +7,15 @@
     <parameters>
         <parameter key="hnsta_flickr.user_id" />
         <parameter key="hnsta_flickr.api_key" />
+        <parameter key="hnsta_flickr.http.class">Hnsta\FlickrBundle\Http\Curl</parameter>
         <parameter key="hnsta_flickr.api.class">Hnsta\FlickrBundle\FlickrApi</parameter>
     </parameters>
 
     <services>
+        <service id="hnsta_flickr.http" class="%hnsta_flickr.http.class%">
+        </service>
         <service id="hnsta_flickr.api" class="%hnsta_flickr.api.class%">
+            <argument type="service" id="hnsta_flickr.http"></argument>
             <argument>%hnsta_flickr.user_id%</argument>
             <argument>%hnsta_flickr.api_key%</argument>
         </service>
