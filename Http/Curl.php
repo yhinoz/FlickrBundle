@@ -8,7 +8,7 @@ class Curl implements HttpAdapter
     const HTTP_METHOD_POST   = 2;
     const HTTP_METHOD_PUT    = 3;
     const HTTP_METHOD_DELETE = 4;
-    const TIMEOUT_SEC = 30;
+    const TIMEOUT_SEC        = 30;
 
     protected $resource;
 
@@ -46,13 +46,13 @@ class Curl implements HttpAdapter
         return $this;
     }
 
-    public function setOptions($options = array()) 
+    public function setOptions($options = array())
     {
         if (is_array($options)) {
             foreach ($options as $option => $value) {
                 if (!curl_setopt($this->resource, $option, $value)) {
                     throw new \LogicException(
-                        'curl_setopt failure, ' 
+                        'curl_setopt failure, '
                         . json_encode(array(
                             $option => $value,
                         ))
@@ -89,7 +89,7 @@ class Curl implements HttpAdapter
         $this->responseBody = curl_exec($this->resource);
         $this->responseInfo = curl_getinfo($this->resource);
         if ($this->responseBody === false) {
-            $code = curl_errno($this->resource);
+            $code    = curl_errno($this->resource);
             $message = curl_error($this->resource);
             throw new \RuntimeException(
                 'curl_exec failure, '
@@ -107,18 +107,18 @@ class Curl implements HttpAdapter
         $options = array();
 
         switch ($this->httpMethod) {
-        case self::HTTP_METHOD_GET:
-            $options = array(CURLOPT_HTTPGET => true);
-            break;
-        case self::HTTP_METHOD_POST:
-            $options = array(CURLOPT_POST => true);
-            break;
-        case self::HTTP_METHOD_PUT:
-            $options = array(CURLOPT_PUT => true);
-            break;
-        case self::HTTP_METHOD_DELETE:
-            $options = array(CURLOPT_CUSTOMREQUEST => 'DELETE');
-            break;
+            case self::HTTP_METHOD_GET:
+                $options = array(CURLOPT_HTTPGET => true);
+                break;
+            case self::HTTP_METHOD_POST:
+                $options = array(CURLOPT_POST => true);
+                break;
+            case self::HTTP_METHOD_PUT:
+                $options = array(CURLOPT_PUT => true);
+                break;
+            case self::HTTP_METHOD_DELETE:
+                $options = array(CURLOPT_CUSTOMREQUEST => 'DELETE');
+                break;
         }
 
         if ($this->queryData === null || $this->queryData === "") {

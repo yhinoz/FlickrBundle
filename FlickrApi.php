@@ -21,7 +21,7 @@ class FlickrApi
 
     public function __construct($http, $user_id, $api_key)
     {
-        $this->http = $http;
+        $this->http    = $http;
         $this->user_id = $user_id;
         $this->api_key = $api_key;
     }
